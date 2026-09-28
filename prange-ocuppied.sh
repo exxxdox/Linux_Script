@@ -1,7 +1,13 @@
 #!/bin/bash
-# 用法: ./ssport.sh <起始端口> <结束端口> [ipv4|ipv6|all]
+# 用法: ./prange-ocuppied.sh <起始端口> <结束端口> [ipv4|ipv6|all]
 # 功能: 显示 [a,b] 区间内的端口占用情况，按端口号升序排序
 # 默认 all = IPv4 + IPv6
+#
+# @参数说明
+#   起始端口           必填   端口区间起点（数字，通常 1-65535）
+#   结束端口           必填   端口区间终点（数字，应 >= 起始端口）
+#   ipv4|ipv6|all     可选   地址族过滤，省略时为 all（IPv4 + IPv6）
+#
 
 if [ $# -lt 2 ] || [ $# -gt 3 ]; then
     echo "用法: $0 <起始端口> <结束端口> [ipv4|ipv6|all]"

@@ -1,5 +1,14 @@
 #!/bin/bash
 # 用法: ./smb-mount.sh <server_ip> <share_name> <mount_point> <username> <password>
+#
+# @参数说明
+#   server_ip     必填   SMB 服务器地址，IP 或主机名
+#   share_name    必填   共享名，只写共享名，不带 // 前缀
+#   mount_point   必填   本地挂载目录，不存在时自动创建
+#   username      必填   SMB 账号，写入 /etc/samba/creds_<server>_<share>
+#   password      必填   SMB 密码，同上写入凭据文件（权限 600）
+#
+# 注意: 密码经命令行传入，会留在 shell history 与 ps 输出中
 
 SERVER="$1"
 SHARE="$2"
